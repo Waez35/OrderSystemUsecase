@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------------------------------------------------
+          ---------------------- JSON Test Objects -------------------
+-------------------------------------------------------------------------------------------------------------------------------
+** Adds User
+
+	localhost:8082/addUser
+	
+	{
+        "userId": "7986",
+        "firstName": "Dirk",
+        "lastName": "Smith",
+        "dob": "1983-09-12"       
+    }
+------------------------------------------------------------------------------------------------------------------------------
+** Adds Product
+
+	localhost:8082/addProd
+	
+	{
+        "productId": 105,
+        "name": "Raheja Cement",
+        "price": 800
+    }
+
+------------------------------------------------------------------------------------------------------------------------------
+** Finds product by name
+
+localhost:8082/findPrdByName/<some prod name>
+
+------------------------------------------------------------------------------------------------------------------------------
+** Creates orders with 2 products for each user in dB.
+   There should be some users and products added before running this.
+   
+localhost:8082/createOrdForEachUser
+
+------------------------------------------------------------------------------------------------------------------------------
+** Creates order for given customer id, more than one products and quantity
+
+localhost:8082/createOrderWith3Inputs
+
+"customer_id":"A1236",
+	"list": [{"prod_id":101,"quantity":1},
+			 {"prod_id":102,"quantity":10},
+	         {"prod_id":103,"quantity":2}
+	        ]
+------------------------------------------------------------------------------------------------------------------------------
+** Creates order based on the JSON matching db model entities.
+
+localhost:8082/createOrder
+
+[ { "quantity":2,
+    "order":{"orderId":501,"orderDate":1514038433303,"user":{"userId":"123","dob":null,"firstName":null,"lastName":null,"orders":null}},
+    "product":{"productId":569,"name":null,"price":null,"orderdetails":null}},
+   
+  { "quantity":4,
+    "order":{"orderId":501,"orderDate":1514038433303,"user":{"userId":"123","dob":null,"firstName":null,"lastName":null,"orders":null}},
+	"product":{"productId":999,"name":null,"price":null,"orderdetails":null}},
+	
+  { "quantity":6,
+    "order":{"orderId":501,"orderDate":1514038433303,"user":{"userId":"123","dob":null,"firstName":null,"lastName":null,"orders":null}},
+	"product":{"productId":9009,"name":null,"price":null,"orderdetails":null}}
+]
+------------------------------------------------------------------------------------------------------------------------------	
+Returns the orders created by a customer
+localhost:8082/OrdersByCustId/<customer id>
+------------------------------------------------------------------------------------------------------------------------------	
